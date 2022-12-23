@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@using OrderTracker.Models;
+
+<h1>@Model.Name</h1>
+
+@if (@Model.Orders.Count == 0)
+{
+  <h3>No orderes have been added</h3>
+}
+@foreach (Order order in Model.Orders)
+{
+  
+  <h2>Title: @order.Title</h2>
+  <ul>
+    <li>Description: @order.Description</li>
+    <li>Price: $@order.Price</li>
+    <li>Date: @order.Date</li>
+  </ul>  
+  <hr>
+
+}
+<h3><a href='/vendors/@Model.Id/orders/new'>Add new order to @Model.Name</a></h3>
+<h3><a href='/vendors'>View Vendors</a></h3>
+<form action="/vendors/@Model.Id/delete" method="post">
+  <button name="submit" type="submit" class="btn btn-primary">Delete Vendor</button>
+</form>
