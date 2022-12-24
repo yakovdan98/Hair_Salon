@@ -2,7 +2,7 @@
 
 #### By Daniel Yakovlev
 
-#### A Program that displays different vendors and order that they have made
+#### A Program that displays the stylists and clients at a Hair Salon
 
 ## Technologies Used
 
@@ -11,20 +11,39 @@
 * CSS
 * HTML
 * JavaScript
+* EFCore
+* MySQL
+* ASP.Net
 
 
 ## Setup/Installation Requirements
 
+#### Setup MySQL database
 * Clone this repo to your workspace.
+* Open MySQLWorkBench
+* Click Data Import/Restore under Administration
+* Select Import from Self-Contained File
+* Select daniel_yakovlev.sql from the project root directory
+* Select New from the target Schema
+* Enter daniel_yakovlev of the new schema to create
+* click ok and Start Import
+
+#### Running Web App
 * Navigate to the top level of the directory.
-* Navigate to program directory ``` $ cd OrderTracker ```
+* Navigate to program directory ``` $ cd HairSalon ```
+* create a new file called `appsettings.json` with the following
+``` 
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Port=3306;database=daniel_yakovlev;uid=root;pwd=[PASSWORD];"
+  }
+} 
+```
+replace [PASSWORD] with your database password 
+
+
 * Build the project with ``` $ dotnet build ```
 * Run the project with ``` $ dotnet watch run ```
-
-## Testing Requirements
-* Clone this repo to your workspace.
-* Navigate to the top level of the directory.
-* Build the project with ``` $ dotnet test OrderTracker.Tests/ ```
 
 ## Known Bugs
 
